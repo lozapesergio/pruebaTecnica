@@ -1,4 +1,4 @@
-package com.prices.pruebaTecnica.infraestructure.adapter.in;
+package com.prices.pruebaTecnica.web.controller;
 
 import com.prices.pruebaTecnica.application.PriceService;
 import com.prices.pruebaTecnica.domain.dto.PriceResponse;
@@ -29,9 +29,8 @@ public class PriceController {
             @RequestParam("brandId") int brandId
     ) {
 
-        Optional<PriceResponse> resp = service.getPrice(date, productId, brandId);
+        PriceResponse resp = service.getPrice(date, productId, brandId);
 
-        return resp.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        return ResponseEntity.ok(resp);
     }
 }
