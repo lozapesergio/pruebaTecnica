@@ -35,6 +35,20 @@ public class Price {
     @Column(name = "CURR", nullable = false)
     private String curr;
 
+    public Price() {
+    }
+
+    public Price(int brandId, LocalDateTime startDate, LocalDateTime endDate, int priceList, int productId, int priority, double price, String curr) {
+        this.brandId = brandId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.priceList = priceList;
+        this.productId = productId;
+        this.priority = priority;
+        this.price = price;
+        this.curr = curr;
+    }
+
     public String getCurr() {
         return curr;
     }
