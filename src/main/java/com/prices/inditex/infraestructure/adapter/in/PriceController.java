@@ -1,7 +1,9 @@
-package com.prices.inditex.web.controller;
+package com.prices.inditex.infraestructure.adapter.in;
 
-import com.prices.inditex.application.PriceService;
+import com.prices.inditex.application.PriceServiceImpl;
 import com.prices.inditex.domain.dto.PriceResponse;
+import com.prices.inditex.domain.model.Price;
+import com.prices.inditex.infraestructure.adapter.in.mappers.PriceResponseMapper;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +17,9 @@ import java.time.LocalDateTime;
 @RequestMapping("/api/prices")
 public class PriceController {
 
-    private final PriceService service;
+    private final PriceServiceImpl service;
 
-    public PriceController(PriceService service) {
+    public PriceController(PriceServiceImpl service) {
         this.service = service;
     }
 
@@ -28,7 +30,9 @@ public class PriceController {
             @RequestParam("brandId") int brandId
     ) {
 
-        PriceResponse resp = service.getPrice(date, productId, brandId);
-        return ResponseEntity.ok(resp);
+        Price price = service.getPrice(date, productId, brandId);
+        PriceResponse response = PriceResponseMapper.toPriceResponse(price);
+
+        return ResponseEntity.ok(response);
     }
 }
