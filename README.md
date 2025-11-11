@@ -17,7 +17,7 @@ entre el dominio, la lógica y la infraestructura.
 
 Esto facilita tanto el mantenimiento como la ampliación del sistema a futuro.
 
-![img.png](images/img.png)
+![img.png](images/imgArquitectura.png)
 
 ## **EJECUCIÓN DEL PROYECTO**
 ### Requisitos previos
