@@ -1,4 +1,4 @@
-package com.prices.pruebaTecnica.domain.exception;
+package com.prices.inditex.domain.exception;
 
 public class NotFoundException extends RuntimeException{
     public NotFoundException(String message){

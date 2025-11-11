@@ -1,6 +1,6 @@
-package com.prices.pruebaTecnica.infraestructure.adapter.out;
+package com.prices.inditex.infraestructure.adapter.out;
 
-import com.prices.pruebaTecnica.domain.model.Price;
+import com.prices.inditex.domain.model.Price;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
