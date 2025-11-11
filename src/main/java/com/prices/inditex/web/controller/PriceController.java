@@ -1,7 +1,7 @@
-package com.prices.pruebaTecnica.web.controller;
+package com.prices.inditex.web.controller;
 
-import com.prices.pruebaTecnica.application.PriceService;
-import com.prices.pruebaTecnica.domain.dto.PriceResponse;
+import com.prices.inditex.application.PriceService;
+import com.prices.inditex.domain.dto.PriceResponse;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/prices")
@@ -30,7 +29,6 @@ public class PriceController {
     ) {
 
         PriceResponse resp = service.getPrice(date, productId, brandId);
-
         return ResponseEntity.ok(resp);
     }
 }

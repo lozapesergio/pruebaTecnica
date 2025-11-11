@@ -6,28 +6,43 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.7</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.prices</groupId>
 	<artifactId>pruebaTecnica</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pruebaTecnica</name>
 	<description>Prueba Tecnica Sergio Lozano</description>
-	<url/>
+    <url>https://github.com/lozapesergio/pruebaTecnica</url>
 	<licenses>
 		<license/>
 	</licenses>
 	<developers>
-		<developer/>
+        <developer>
+            <id>lozapesergio</id>
+            <name>Sergio Lozano Pérez</name>
+            <email>lozis1997@gmail.com</email>
+            <organization>Inditex</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+        <connection>scm:git:git://github.com/lozapesergio/pruebaTecnica.git</connection>
+        <developerConnection>scm:git:ssh://github.com:lozapesergio/pruebaTecnica.git</developerConnection>
+        <url>https://github.com/lozapesergio/pruebaTecnica</url>
+        <tag>HEAD</tag>
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+        <sonar.projectKey>lozapesergio_pruebaTecnica</sonar.projectKey>
+        <sonar.organization>lozapesergio</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.language>java</sonar.language>
+        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -48,26 +63,43 @@
             <version>2.2.224</version>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.11.0.3922</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
-
 </project>
